@@ -45,10 +45,11 @@ export function drawableToSvg(drawable) {
 
   for (const set of drawable.sets || []) {
     const d = opsToPath(set.ops);
+    const dashAttr = o.strokeLineDash ? ` stroke-dasharray="${o.strokeLineDash.join(' ')}"` : '';
     switch (set.type) {
       case "path":
         parts.push(
-          `<path d="${d}" stroke="${o.stroke}" stroke-width="${o.strokeWidth}" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`
+          `<path d="${d}" stroke="${o.stroke}" stroke-width="${o.strokeWidth}" fill="none" stroke-linecap="round" stroke-linejoin="round"${dashAttr}/>`
         );
         break;
       case "fillPath":
