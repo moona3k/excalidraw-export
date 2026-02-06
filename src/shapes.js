@@ -101,9 +101,11 @@ export function renderLine(el) {
   const abs = el.points.map(([px, py]) => [el.x + px, el.y + py]);
   const parts = [];
 
-  // Draw the line
+  // Draw the line — use curve for rounded multi-point paths
   if (abs.length === 2) {
     parts.push(drawableToSvg(gen.line(abs[0][0], abs[0][1], abs[1][0], abs[1][1], opts)));
+  } else if (el.roundness && abs.length > 2) {
+    parts.push(drawableToSvg(gen.curve(abs, opts)));
   } else {
     parts.push(drawableToSvg(gen.linearPath(abs, opts)));
   }
@@ -189,4 +191,33 @@ export function renderFreedraw(el) {
   const d = "M" + abs.map(([x, y]) => `${x.toFixed(2)} ${y.toFixed(2)}`).join(" L");
 
   return `<path d="${d}" stroke="${el.strokeColor || "#1e1e1e"}" stroke-width="${el.strokeWidth || 2}" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
+}
+
+// ── Images ────────────────────────────────────────────────
+
+export function renderImage(el, files) {
+  const fileData = files && files[el.fileId];
+  if (!fileData || !fileData.dataURL) return "";
+
+  return `<image x="${el.x}" y="${el.y}" width="${el.width}" height="${el.height}" href="${fileData.dataURL}" preserveAspectRatio="xMidYMid meet"/>`;
+}
+
+// ── Frames ────────────────────────────────────────────────
+
+export function renderFrame(el) {
+  const parts = [];
+
+  // Dashed border
+  parts.push(
+    `<rect x="${el.x}" y="${el.y}" width="${el.width}" height="${el.height}" fill="none" stroke="#dee2e6" stroke-width="1" stroke-dasharray="8 4" rx="4"/>`
+  );
+
+  // Frame label
+  if (el.name) {
+    parts.push(
+      `<text x="${el.x + 8}" y="${el.y - 6}" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#868e96">${escapeXml(el.name)}</text>`
+    );
+  }
+
+  return parts.join("\n");
 }

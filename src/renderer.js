@@ -11,6 +11,8 @@ import {
   renderLine,
   renderText,
   renderFreedraw,
+  renderImage,
+  renderFrame,
 } from "./shapes.js";
 
 const PADDING = 40;
@@ -23,6 +25,8 @@ const RENDERERS = {
   arrow: renderLine,
   text: renderText,
   freedraw: renderFreedraw,
+  image: renderImage,
+  frame: renderFrame,
 };
 
 /**
@@ -45,20 +49,32 @@ export function renderToSvg(doc, options = {}) {
   const offsetX = -bbox.minX + PADDING;
   const offsetY = -bbox.minY + PADDING;
 
+  // Build file lookup for embedded images
+  const files = doc.files || {};
+
   // Render each element in array order (Excalidraw z-ordering)
   const rendered = [];
   for (const el of elements) {
     const render = RENDERERS[el.type];
     if (!render) continue;
 
-    const svg = render(el);
+    const svg = render(el, files);
     if (!svg) continue;
 
     const opacity = el.opacity != null && el.opacity < 100
       ? ` opacity="${(el.opacity / 100).toFixed(2)}"`
       : "";
 
-    rendered.push(`<g transform="translate(${offsetX.toFixed(2)},${offsetY.toFixed(2)})"${opacity}>\n${svg}\n</g>`);
+    // Rotation: Excalidraw stores angle in radians around element center
+    let rotation = "";
+    if (el.angle && el.angle !== 0) {
+      const cx = el.x + (el.width || 0) / 2;
+      const cy = el.y + (el.height || 0) / 2;
+      const deg = (el.angle * 180) / Math.PI;
+      rotation = ` rotate(${deg.toFixed(2)},${cx.toFixed(2)},${cy.toFixed(2)})`;
+    }
+
+    rendered.push(`<g transform="translate(${offsetX.toFixed(2)},${offsetY.toFixed(2)})${rotation}"${opacity}>\n${svg}\n</g>`);
   }
 
   const parts = [

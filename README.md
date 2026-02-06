@@ -33,6 +33,9 @@ excalidraw-export diagram.excalidraw --scale 3
 
 # Transparent background
 excalidraw-export diagram.excalidraw --no-background
+
+# Show version
+excalidraw-export --version
 ```
 
 ## Programmatic API
@@ -53,12 +56,18 @@ const svg = renderToSvg(doc);
 - Rectangles (with rounded corners)
 - Ellipses
 - Diamonds
-- Lines and arrows (with arrowheads)
+- Lines and arrows (straight, L-shaped, and curved)
 - Text (Virgil hand-drawn font embedded)
 - Freedraw paths
+- Images (embedded base64)
+- Frames (container grouping)
+- Element rotation
+- Fill styles (solid, hachure, cross-hatch)
+- Stroke styles (solid, dashed, dotted)
+- Opacity
 
 ## How It Works
 
 Uses `rough.generator()` from roughjs which outputs pure math (bezier curves) without needing DOM or Canvas APIs. The generator output is converted to SVG path strings, assembled into a complete SVG document with embedded Virgil font, then rasterized to PNG via resvg.
 
-~600 lines of code. 3 dependencies. Typically exports in under 100ms.
+3 dependencies. Typically exports in under 100ms.

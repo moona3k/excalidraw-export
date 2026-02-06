@@ -11,9 +11,13 @@
  *   excalidraw-export diagram.excalidraw --no-background   # transparent bg
  */
 
-import { existsSync } from "fs";
-import { basename, extname, resolve } from "path";
+import { existsSync, readFileSync } from "fs";
+import { basename, dirname, extname, resolve } from "path";
+import { fileURLToPath } from "url";
 import { exportDiagram } from "./index.js";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const pkg = JSON.parse(readFileSync(resolve(__dirname, "..", "package.json"), "utf-8"));
 
 function printUsage() {
   console.log(`excalidraw-export — Export Excalidraw diagrams to PNG/SVG
@@ -26,6 +30,7 @@ Options:
   --svg                  Export as SVG instead of PNG
   --scale <n>            Scale factor for PNG (default: 2)
   --no-background        Transparent background
+  -v, --version          Show version
   -h, --help             Show this help
 
 Examples:
@@ -41,7 +46,10 @@ function parseArgs(args) {
   let i = 0;
   while (i < args.length) {
     const arg = args[i];
-    if (arg === "-h" || arg === "--help") {
+    if (arg === "-v" || arg === "--version") {
+      console.log(pkg.version);
+      process.exit(0);
+    } else if (arg === "-h" || arg === "--help") {
       printUsage();
       process.exit(0);
     } else if (arg === "-o" || arg === "--output") {

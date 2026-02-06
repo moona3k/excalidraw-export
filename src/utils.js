@@ -67,7 +67,56 @@ export function drawableToSvg(drawable) {
 }
 
 /**
- * Compute bounding box across all visible elements.
+ * Rotate a point around a center by angle (radians).
+ */
+function rotatePoint(x, y, cx, cy, angle) {
+  const cos = Math.cos(angle);
+  const sin = Math.sin(angle);
+  const dx = x - cx;
+  const dy = y - cy;
+  return [cx + dx * cos - dy * sin, cy + dx * sin + dy * cos];
+}
+
+/**
+ * Get the 4 corners of an element's bounding box, rotated if needed.
+ */
+function getElementCorners(el) {
+  let corners;
+
+  if (el.points && el.points.length > 0) {
+    // For lines/arrows, compute tight bounds from points
+    let pMinX = Infinity, pMinY = Infinity, pMaxX = -Infinity, pMaxY = -Infinity;
+    for (const [px, py] of el.points) {
+      pMinX = Math.min(pMinX, el.x + px);
+      pMinY = Math.min(pMinY, el.y + py);
+      pMaxX = Math.max(pMaxX, el.x + px);
+      pMaxY = Math.max(pMaxY, el.y + py);
+    }
+    corners = [
+      [pMinX, pMinY], [pMaxX, pMinY],
+      [pMaxX, pMaxY], [pMinX, pMaxY],
+    ];
+  } else {
+    const x2 = el.x + (el.width || 0);
+    const y2 = el.y + (el.height || 0);
+    corners = [
+      [el.x, el.y], [x2, el.y],
+      [x2, y2], [el.x, y2],
+    ];
+  }
+
+  // Apply rotation if present
+  if (el.angle && el.angle !== 0) {
+    const cx = el.x + (el.width || 0) / 2;
+    const cy = el.y + (el.height || 0) / 2;
+    corners = corners.map(([x, y]) => rotatePoint(x, y, cx, cy, el.angle));
+  }
+
+  return corners;
+}
+
+/**
+ * Compute bounding box across all visible elements, accounting for rotation.
  */
 export function getBoundingBox(elements) {
   let minX = Infinity;
@@ -78,18 +127,11 @@ export function getBoundingBox(elements) {
   for (const el of elements) {
     if (el.isDeleted) continue;
 
-    if (el.points && el.points.length > 0) {
-      for (const [px, py] of el.points) {
-        minX = Math.min(minX, el.x + px);
-        minY = Math.min(minY, el.y + py);
-        maxX = Math.max(maxX, el.x + px);
-        maxY = Math.max(maxY, el.y + py);
-      }
-    } else {
-      minX = Math.min(minX, el.x);
-      minY = Math.min(minY, el.y);
-      maxX = Math.max(maxX, el.x + (el.width || 0));
-      maxY = Math.max(maxY, el.y + (el.height || 0));
+    for (const [x, y] of getElementCorners(el)) {
+      minX = Math.min(minX, x);
+      minY = Math.min(minY, y);
+      maxX = Math.max(maxX, x);
+      maxY = Math.max(maxY, y);
     }
   }
 
