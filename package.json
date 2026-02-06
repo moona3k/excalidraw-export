@@ -31,12 +31,15 @@
   },
   "author": "moona3k",
   "license": "MIT",
+  "homepage": "https://github.com/moona3k/excalidraw-export",
+  "bugs": {
+    "url": "https://github.com/moona3k/excalidraw-export/issues"
+  },
   "engines": {
     "node": ">=18.0.0"
   },
   "dependencies": {
-    "roughjs": "^4.6.6",
     "@resvg/resvg-js": "^2.6.2",
-    "perfect-freehand": "^1.2.2"
+    "roughjs": "^4.6.6"
   }
 }

@@ -70,4 +70,4 @@ const svg = renderToSvg(doc);
 
 Uses `rough.generator()` from roughjs which outputs pure math (bezier curves) without needing DOM or Canvas APIs. The generator output is converted to SVG path strings, assembled into a complete SVG document with embedded Virgil font, then rasterized to PNG via resvg.
 
-3 dependencies. Typically exports in under 100ms.
+2 dependencies. Typically exports in under 100ms.
