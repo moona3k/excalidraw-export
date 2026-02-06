@@ -1,10 +1,10 @@
 {
-  "name": "excalidraw-export",
+  "name": "@moona3k/excalidraw-export",
   "version": "0.1.0",
   "description": "Export Excalidraw diagrams to PNG and SVG from the command line",
   "type": "module",
   "bin": {
-    "excalidraw-export": "./src/cli.js"
+    "excalidraw-export": "src/cli.js"
   },
   "main": "./src/index.js",
   "exports": {
@@ -24,7 +24,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/moona3k/excalidraw-export"
+    "url": "git+https://github.com/moona3k/excalidraw-export.git"
   },
   "author": "moona3k",
   "license": "MIT",
