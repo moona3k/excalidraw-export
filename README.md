@@ -7,13 +7,13 @@ No browser, no Playwright, no DOM. Pure computation using [roughjs](https://roug
 ## Install
 
 ```bash
-npm install -g excalidraw-export
+npm install -g @moona3k/excalidraw-export
 ```
 
 Or use directly with npx:
 
 ```bash
-npx excalidraw-export diagram.excalidraw
+npx @moona3k/excalidraw-export diagram.excalidraw
 ```
 
 ## Usage
@@ -38,7 +38,7 @@ excalidraw-export diagram.excalidraw --no-background
 ## Programmatic API
 
 ```js
-import { exportDiagram, renderToSvg } from "excalidraw-export";
+import { exportDiagram, renderToSvg } from "@moona3k/excalidraw-export";
 
 // Export to file
 exportDiagram("input.excalidraw", "output.png", { scale: 2 });

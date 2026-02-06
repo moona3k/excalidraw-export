@@ -1,6 +1,6 @@
 {
   "name": "@moona3k/excalidraw-export",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Export Excalidraw diagrams to PNG and SVG from the command line",
   "type": "module",
   "bin": {
