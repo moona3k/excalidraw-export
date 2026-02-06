@@ -1,0 +1,99 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "test",
+  "elements": [
+    {
+      "type": "rectangle",
+      "id": "rect1",
+      "x": 60, "y": 60, "width": 120, "height": 60,
+      "angle": 0,
+      "strokeColor": "#1971c2", "backgroundColor": "#a5d8ff",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid",
+      "roughness": 1, "opacity": 100, "groupIds": [],
+      "roundness": { "type": 3 }, "seed": 100, "version": 1, "versionNonce": 100,
+      "isDeleted": false, "boundElements": [], "link": null, "locked": false
+    },
+    {
+      "type": "ellipse",
+      "id": "ell1",
+      "x": 250, "y": 60, "width": 120, "height": 80,
+      "angle": 0,
+      "strokeColor": "#2f9e44", "backgroundColor": "#b2f2bb",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid",
+      "roughness": 1, "opacity": 100, "groupIds": [],
+      "roundness": { "type": 2 }, "seed": 200, "version": 1, "versionNonce": 200,
+      "isDeleted": false, "boundElements": [], "link": null, "locked": false
+    },
+    {
+      "type": "diamond",
+      "id": "dia1",
+      "x": 440, "y": 50, "width": 100, "height": 100,
+      "angle": 0,
+      "strokeColor": "#f08c00", "backgroundColor": "#fff3bf",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid",
+      "roughness": 1, "opacity": 100, "groupIds": [],
+      "roundness": { "type": 2 }, "seed": 300, "version": 1, "versionNonce": 300,
+      "isDeleted": false, "boundElements": [], "link": null, "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr1",
+      "x": 180, "y": 90, "width": 70, "height": 0,
+      "angle": 0,
+      "points": [[0, 0], [70, 0]],
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid",
+      "roughness": 1, "opacity": 100, "groupIds": [],
+      "roundness": { "type": 2 }, "seed": 400, "version": 1, "versionNonce": 400,
+      "isDeleted": false, "boundElements": null,
+      "startBinding": null, "endBinding": null,
+      "startArrowhead": null, "endArrowhead": "arrow",
+      "lastCommittedPoint": null, "link": null, "locked": false
+    },
+    {
+      "type": "line",
+      "id": "line1",
+      "x": 370, "y": 100, "width": 70, "height": 0,
+      "angle": 0,
+      "points": [[0, 0], [70, 0]],
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid",
+      "roughness": 1, "opacity": 100, "groupIds": [],
+      "roundness": null, "seed": 500, "version": 1, "versionNonce": 500,
+      "isDeleted": false, "boundElements": null,
+      "startBinding": null, "endBinding": null,
+      "startArrowhead": null, "endArrowhead": null,
+      "lastCommittedPoint": null, "link": null, "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt1",
+      "x": 60, "y": 180, "width": 200, "height": 24,
+      "text": "Standalone text",
+      "fontSize": 20, "fontFamily": 1,
+      "textAlign": "left", "verticalAlign": "top",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid",
+      "roughness": 1, "opacity": 100, "angle": 0, "groupIds": [],
+      "roundness": null, "seed": 600, "version": 1, "versionNonce": 600,
+      "isDeleted": false, "boundElements": null, "containerId": null,
+      "originalText": "Standalone text", "link": null, "locked": false
+    },
+    {
+      "type": "freedraw",
+      "id": "fd1",
+      "x": 300, "y": 180, "width": 50, "height": 30,
+      "angle": 0,
+      "points": [[0, 0], [10, 5], [20, 15], [30, 10], [40, 20], [50, 30]],
+      "strokeColor": "#e03131", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid",
+      "roughness": 1, "opacity": 100, "groupIds": [],
+      "roundness": null, "seed": 700, "version": 1, "versionNonce": 700,
+      "isDeleted": false, "boundElements": null,
+      "link": null, "locked": false
+    }
+  ],
+  "appState": { "viewBackgroundColor": "#ffffff" },
+  "files": {}
+}

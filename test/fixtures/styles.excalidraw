@@ -1,0 +1,42 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "test",
+  "elements": [
+    {
+      "type": "rectangle",
+      "id": "dashed",
+      "x": 60, "y": 60, "width": 120, "height": 60,
+      "angle": 0,
+      "strokeColor": "#1e1e1e", "backgroundColor": "#e9ecef",
+      "fillStyle": "hachure", "strokeWidth": 2, "strokeStyle": "dashed",
+      "roughness": 1, "opacity": 100, "groupIds": [],
+      "roundness": null, "seed": 100, "version": 1, "versionNonce": 100,
+      "isDeleted": false, "boundElements": [], "link": null, "locked": false
+    },
+    {
+      "type": "rectangle",
+      "id": "dotted",
+      "x": 250, "y": 60, "width": 120, "height": 60,
+      "angle": 0,
+      "strokeColor": "#1e1e1e", "backgroundColor": "#d0bfff",
+      "fillStyle": "cross-hatch", "strokeWidth": 2, "strokeStyle": "dotted",
+      "roughness": 1, "opacity": 50, "groupIds": [],
+      "roundness": null, "seed": 200, "version": 1, "versionNonce": 200,
+      "isDeleted": false, "boundElements": [], "link": null, "locked": false
+    },
+    {
+      "type": "rectangle",
+      "id": "clean",
+      "x": 440, "y": 60, "width": 120, "height": 60,
+      "angle": 0,
+      "strokeColor": "#1e1e1e", "backgroundColor": "#a5d8ff",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid",
+      "roughness": 0, "opacity": 100, "groupIds": [],
+      "roundness": { "type": 3 }, "seed": 300, "version": 1, "versionNonce": 300,
+      "isDeleted": false, "boundElements": [], "link": null, "locked": false
+    }
+  ],
+  "appState": { "viewBackgroundColor": "#ffffff" },
+  "files": {}
+}

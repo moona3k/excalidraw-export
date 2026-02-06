@@ -1,0 +1,31 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "test",
+  "elements": [
+    {
+      "type": "rectangle",
+      "id": "rotated_rect",
+      "x": 100, "y": 100, "width": 200, "height": 80,
+      "angle": 0.5,
+      "strokeColor": "#1971c2", "backgroundColor": "#a5d8ff",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid",
+      "roughness": 1, "opacity": 100, "groupIds": [],
+      "roundness": { "type": 3 }, "seed": 1001, "version": 1, "versionNonce": 1001,
+      "isDeleted": false, "boundElements": [], "link": null, "locked": false
+    },
+    {
+      "type": "ellipse",
+      "id": "rotated_ellipse",
+      "x": 400, "y": 100, "width": 150, "height": 100,
+      "angle": -0.3,
+      "strokeColor": "#2f9e44", "backgroundColor": "#b2f2bb",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid",
+      "roughness": 1, "opacity": 100, "groupIds": [],
+      "roundness": { "type": 2 }, "seed": 2001, "version": 1, "versionNonce": 2001,
+      "isDeleted": false, "boundElements": [], "link": null, "locked": false
+    }
+  ],
+  "appState": { "viewBackgroundColor": "#ffffff" },
+  "files": {}
+}
